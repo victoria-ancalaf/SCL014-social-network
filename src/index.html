@@ -1,14 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@600&display=swap" rel="stylesheet">
   <title>Red Social</title>
 </head>
+
 <body>
-  <h1>Hola</h1>
+  <div id="first-screen" class="login-page">
+    <aside class="first-aside"></aside>
+    <main class="user-login">
+      <img src="img/log.PNG"></img>
+      <label for="email">Inicia sesión con tu cuenta:</label>
+      <input type="email" id="email" class="log-input" placeholder="Correo Electrónico"></input>
+      <label for="password"></label>
+      <input type="password" id="password" class="log-input" placeholder="Contraseña"></input>
+      <button type="button" id="enterBtn" class="enter-btn">Iniciar sesión</button>
+      <button type="button" id="register" class="register-btn">O regístrate.</button>
+    </main>
+  </div>
+
+  <div id="register-screen" class="login-2page">
+    <aside class="second-aside"></aside>
+    <main class="user-login">
+      <img src="img/log.PNG"></img>
+      <label for="email">Inicia sesión con tu cuenta:</label>
+      <input type="email" id="email" class="log-input" placeholder="Correo Electrónico"></input>
+      <label for="password"></label>
+      <input type="password" id="password" class="log-input" placeholder="Contraseña"></input>
+      <button type="button" class="enter-btn">Iniciar sesión</button>
+
+    </main>
+  </div>
   <script type="module" src="main.js"></script>
 </body>
+
 </html>

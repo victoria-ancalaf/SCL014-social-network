@@ -1,0 +1,83 @@
+body {
+    padding: 0px;
+    margin: 0px auto;
+    height: 100%;
+}
+
+.login-page {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-family: 'Assistant', sans-serif;
+}
+
+.first-aside {
+    display: flex;
+    width: 50%;
+    height: 39rem;
+    background-image: url(img/casitas.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.user-login {
+    display: flex;
+    width: 50%;
+    height: auto;
+    align-items: center;
+    flex-direction: column;
+}
+
+.user-login img {
+    margin-top: 70px;
+    margin-bottom: 40px;
+}
+
+.user-login label {
+    font-size: 25px;
+    color: #555555;
+}
+
+.log-input {
+    width: 18rem;
+    height: 2rem;
+    background: #F1F1F1;
+    border-radius: 10px;
+    padding: 10px;
+    border-color: #00C6CE;
+    margin: 18px;
+    text-align: center;
+}
+
+.enter-btn {
+    width: 15rem;
+    height: 4rem;
+    background-color: #00C6CE;
+    border-radius: 8px;
+    border-style: none;
+    font-size: 28px;
+    color: #F1F1F1;
+}
+
+.register-btn {
+    border-style: none;
+    margin-top: 40px;
+    font-size: 20px;
+    color: #00C6CE
+}
+
+.login-2page {
+    display: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-family: 'Assistant', sans-serif;
+}
+
+.second-aside {
+    display: flex;
+    width: 50%;
+    height: 39rem;
+    background-image: url(img/street.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
