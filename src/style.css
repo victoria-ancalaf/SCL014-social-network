@@ -11,59 +11,54 @@ body {
     font-family: 'Assistant', sans-serif;
 }
 
-.first-aside {
-    display: flex;
-    width: 50%;
-    height: 39rem;
-    background-image: url(img/casitas.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
 .user-login {
     display: flex;
-    width: 50%;
+    width: 100%;
     height: auto;
     align-items: center;
     flex-direction: column;
 }
 
 .user-login img {
-    margin-top: 70px;
+    margin-top: 66px;
     margin-bottom: 40px;
 }
 
 .user-login label {
-    font-size: 25px;
+    font-size: 16px;
     color: #555555;
+    font-family: 'Assistant', sans-serif;
 }
 
 .log-input {
-    width: 18rem;
-    height: 2rem;
+    width: 274px;
+    height: 38px;
     background: #F1F1F1;
     border-radius: 10px;
     padding: 10px;
     border-color: #00C6CE;
     margin: 18px;
     text-align: center;
+    color: #7C7D7E;
 }
 
 .enter-btn {
-    width: 15rem;
-    height: 4rem;
+    width: 123px;
+    height: 41px;
     background-color: #00C6CE;
     border-radius: 8px;
     border-style: none;
-    font-size: 28px;
-    color: #F1F1F1;
+    font-size: 18px;
+    color: #FFFFFF;
+    font-family: 'Assistant', sans-serif;
 }
 
 .register-btn {
-    border-style: none;
-    margin-top: 40px;
-    font-size: 20px;
-    color: #00C6CE
+    --border-style: none;
+    margin-top: 70px;
+    font-size: 18px;
+    color: #00C6CE;
+    background: none;
 }
 
 .login-2page {
@@ -73,11 +68,29 @@ body {
     font-family: 'Assistant', sans-serif;
 }
 
-.second-aside {
-    display: flex;
-    width: 50%;
-    height: 39rem;
-    background-image: url(img/street.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+@media (min-width: 1000px) {
+  
+    .first-aside {
+        display: flex;
+        width: 50%;
+        height: 39rem;
+        background-image: url(img/casitas.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    .user-login {
+        width: 50%
+    }
+
+    .second-aside {
+        display: flex;
+        width: 50%;
+        height: 39rem;
+        background-image: url(img/street.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+  }
+    

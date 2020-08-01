@@ -9,6 +9,6 @@ const registerPage = document.getElementById('register-screen');
 const registerBtn = document.getElementById('register');
 
 registerBtn.addEventListener('click', () => {
-loginPage.style.display = 'none';
-registerPage.style.display = 'flex';
+  loginPage.style.display = 'none';
+  registerPage.style.display = 'flex';
 });
