@@ -6,26 +6,31 @@ myFunction();
 
 const loginPage = document.getElementById('first-screen');
 const registerPage = document.getElementById('register-screen');
-const registerBtn = document.getElementById('register');
+const registerBtn = document.getElementById('register-btn');
 
 registerBtn.addEventListener('click', () => {
     loginPage.style.display = 'none';
     registerPage.style.display = 'flex';
 });
 
-const firebaseConfig = {
-    apiKey: "AIzaSyDM2h2FxNmCkyRR6ddT_GFW7aRDzf_a0p4",
-    authDomain: "social-network-proyect.firebaseapp.com",
-    databaseURL: "https://social-network-proyect.firebaseio.com",
-    projectId: "social-network-proyect",
-    storageBucket: "social-network-proyect.appspot.com",
-    messagingSenderId: "138624545118",
-    appId: "1:138624545118:web:2f866c929e3cd845a05fcf",
-    measurementId: "G-YH82TES751"
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-firebase.analytics();
+
+/* const regisBtn = document.getElementById('regisBtn');
+regisBtn.addEventListener('click', () => {
+    register();
+    console.log(register());
+}); */
+
+function register() {
+    var email = document.getElementById('new-email').value;
+    var password = document.getElementById('new-password').value;
+
+    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // ...
+    });
+}
 
 
 /* //FUNCIÓN INICIAR SESIÓN
@@ -69,7 +74,7 @@ function toggleSignIn() {
 
 // FUNCIÓN CREAR CUENTA
 
-function handleSignUp() {
+/* function handleSignUp() {
     var email = document.getElementById('new-email').value;
     var password = document.getElementById('new-password').value;
     if (email.length < 4) {
@@ -142,4 +147,4 @@ function initApp() {
 
 window.onload = function() {
     initApp();
-};
+}; */
