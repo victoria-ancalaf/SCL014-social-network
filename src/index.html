@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +7,31 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@600&display=swap" rel="stylesheet">
   <title>Red Social</title>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDM2h2FxNmCkyRR6ddT_GFW7aRDzf_a0p4",
+    authDomain: "social-network-proyect.firebaseapp.com",
+    databaseURL: "https://social-network-proyect.firebaseio.com",
+    projectId: "social-network-proyect",
+    storageBucket: "social-network-proyect.appspot.com",
+    messagingSenderId: "138624545118",
+    appId: "1:138624545118:web:2f866c929e3cd845a05fcf",
+    
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+<script type="module" src="main.js" defer></script>
 </head>
 
 <body>
@@ -28,17 +52,16 @@
     <aside class="second-aside"></aside>
     <main class="user-login">
       <img src="img/log.PNG"></img>
-      <label for="name">Registrarse:</label>
-      <input type="text" id="user-name" class="log-input" placeholder="Nombre"></input>
       <label for="email"></label>
       <input type="email" id="new-email" class="log-input" placeholder="Correo electrónico"></input>
       <label for="password"></label>
       <input type="password" id="new-password" class="log-input" placeholder="Contraseña"></input>
       <button type="button" id="regisBtn" class="enter-btn">Registrarse</button>
+      <button type="button" id="googleBtn" class="enter-btn">Google</button>
 
     </main>
   </div>
-  <script type="module" src="main.js"></script>
+  
 </body>
 
 </html>
