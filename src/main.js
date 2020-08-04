@@ -9,8 +9,8 @@ const registerPage = document.getElementById('register-screen');
 const registerBtn = document.getElementById('register');
 
 registerBtn.addEventListener('click', () => {
-  loginPage.style.display = 'none';
-  registerPage.style.display = 'flex';
+    loginPage.style.display = 'none';
+    registerPage.style.display = 'flex';
 });
 
 console.log(firebase);
@@ -22,3 +22,4 @@ const googleBtn = document.getElementById("googleBtn");
 const provider = new firebase.auth.GoogleAuthProvider();
 
 googleBtn.onclick = () => auth.signInWithPopup(provider);
+
