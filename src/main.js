@@ -22,3 +22,4 @@ const googleBtn = document.getElementById("googleBtn");
 const provider = new firebase.auth.GoogleAuthProvider();
 
 googleBtn.onclick = () => auth.signInWithPopup(provider);
+
