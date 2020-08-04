@@ -3,14 +3,9 @@
     margin: 0;
 }
 
-@media screen and (prefers-reduced-motion: no-preference) {
-    html,
-    body {
-        scroll-behavior: smooth;
-    }
-}
-
 body {
+    background-image: url(img/BG.png);
+    background-repeat: repeat;
     padding: 0px;
     margin: 0px auto;
     height: 100%;
@@ -36,14 +31,14 @@ body {
 }
 
 .user-login img {
-    margin-top: 66px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
 }
 
 .user-login label {
     font-size: 16px;
     color: #555555;
     font-family: 'Assistant', sans-serif;
+    font-size: 20px;
 }
 
 .log-input {
@@ -56,25 +51,37 @@ body {
     margin: 18px;
     text-align: center;
     color: #7C7D7E;
+    font-size: 14px;
+    outline: none;
+}
+
+.user-login:focus {
+    outline: none!important;
 }
 
 .enter-btn {
     width: 123px;
     height: 41px;
     background-color: #00C6CE;
+    border: 3px #555555;
     border-radius: 8px;
-    border-style: none;
     font-size: 18px;
     color: #FFFFFF;
     font-family: 'Assistant', sans-serif;
+    cursor: pointer;
+}
+
+.enter-btn:hover {
+    border: 3px #555555;
+    background-color: #38D8C9;
 }
 
 .register-btn {
-    --border-style: none;
     margin-top: 70px;
     font-size: 18px;
     color: #00C6CE;
     background: none;
+    cursor: pointer;
 }
 
 .login-2page {
@@ -82,9 +89,26 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     font-family: 'Assistant', sans-serif;
+    font-size: 14px;
 }
 
-@media (min-width: 1000px) {
+.google {
+    width: 80px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.text {
+    font-family: 'Assistant', sans-serif;
+    font-size: 16px;
+    color: #555555;
+    padding-top: 25px;
+}
+
+
+/*MQ escritorio */
+
+@media screen and (max-width:1023px) and (min-width:768px) {
     .first-aside {
         display: flex;
         width: 50%;
