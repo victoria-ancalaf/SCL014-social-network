@@ -1,6 +1,8 @@
 // Este es el punto de entrada de tu aplicacion
 
-import { myFunction } from './lib/index.js';
+import {
+    myFunction
+} from './lib/index.js';
 
 myFunction();
 
@@ -9,6 +11,11 @@ const registerPage = document.getElementById('register-screen');
 const registerBtn = document.getElementById('register');
 const newUserBtn = document.getElementById('newUserBtn');
 const enterBtn = document.getElementById('enterBtn');
+const screenTwo = document.getElementById('screen-two');
+
+const auth = firebase.auth();
+const googleBtn = document.getElementById("googleBtn");
+const provider = new firebase.auth.GoogleAuthProvider();
 
 // Ir a la página de registro
 registerBtn.addEventListener('click', () => {
@@ -52,6 +59,8 @@ function register() {
 
 newUserBtn.addEventListener('click', () => {
     register();
+    registerPage.style.display = 'none';
+    screenTwo.style.display = 'block';
 });
 
 
@@ -85,3 +94,22 @@ function loginApp() {
         console.log(error);
     });
 };
+
+
+enterBtn.addEventListener('click', () => {
+    loginApp();
+    loginPage.style.display = 'none';
+    screenTwo.style.display = 'flex';
+});
+
+
+googleBtn.addEventListener('click', () => {
+    auth.signInWithPopup(provider);
+});
+
+// MOSTRAR Y OCULTAR MENU DESPLEGABLE (SIDEBAR)
+document.querySelector('.toggle-btn').addEventListener('click', showSidebar);
+
+function showSidebar() {
+    document.getElementById('sidebar').classList.toggle('active');
+}
