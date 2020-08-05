@@ -105,10 +105,72 @@ body {
     padding-top: 25px;
 }
 
+.material-icons {
+    width: 55px;
+}
+
+
+/* Menú Desplegable */
+
+#sidebar {
+    position: fixed;
+    text-align: center;
+    width: 380px;
+    left: -380px;
+    height: auto;
+    background-image: linear-gradient(to bottom, #a8dd9c, #91d99c, #76d59f, #57d1a4, #24ccaa);
+    transition: all 0.75s ease-in-out;
+    border-bottom-right-radius: 20px;
+    z-index: 1;
+}
+
+#sidebar .toggle-btn {
+    position: absolute;
+    left: 410px;
+    top: 30px;
+    cursor: pointer;
+}
+
+#sidebar.active {
+    left: 0;
+}
+
+#sidebar .toggle-btn span {
+    display: block;
+    width: 50px;
+    text-align: center;
+    font-style: bold;
+    font-size: 40px;
+    border: 2px solid rgb(95, 95, 95);
+    border-radius: 10px;
+    color: rgb(95, 95, 95);
+    background-color: white;
+}
+
+#sidebar ul li {
+    text-decoration: none!important;
+    font-family: 'Assistant', sans-serif;
+    text-align: left;
+    font-size: 25px;
+    color: white;
+    border-top: 2px solid #fff;
+    padding: 15px;
+}
+
+#sidebar ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+
+/* #sidebar ul li:hover {
+    background-image: linear-gradient(119.36deg, #4c8b6e 0%, #266378 100%);
+} */
+
 
 /*MQ escritorio */
 
-@media screen and (max-width:1023px) and (min-width:768px) {
+@media screen and (min-width:768px) {
     .first-aside {
         display: flex;
         width: 50%;

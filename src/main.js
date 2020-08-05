@@ -27,7 +27,26 @@ function register() {
         // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
-        // ...
+        switch (register) {
+            case 'emailAlreadyInUse':
+                if (errorCode === 'auth/email-already-in-use') {
+                    alert('Email en uso.');
+                }
+                break;
+            case 'invalidEmail':
+                if (errorCode === 'auth/invalid-email') {
+                    alert('Email inválido.');
+                }
+                break;
+            case 'weakPassword':
+                if (errorCode == 'auth/weak-password') {
+                    alert('La contraseña es demasiado débil.');
+                }
+                break;
+            default:
+                alert(errorMessage);
+        };
+        console.log(error);
     })
 };
 
@@ -44,20 +63,25 @@ function loginApp() {
         // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
-        // ...
+        switch (expr) {
+            case 'invalidEmail':
+                if (errorCode === 'auth/invalid-email') {
+                    alert('Email incorrecto.');
+                }
+                break;
+            case 'userNotFound':
+                if (errorCode === 'auth/user-not-found') {
+                    alert('Usuario no encontrado.');
+                }
+                break;
+            case 'wrongPassword':
+                if (errorCode === 'auth/wrong-password') {
+                    alert('Contraseña incorrecta.');
+                }
+                break;
+            default:
+                alert(errorMessage);
+        };
+        console.log(error);
     });
 };
-
-enterBtn.addEventListener('click', () => {
-    loginApp();
-});
-
-
-// Registrar con Google
-const auth = firebase.auth();
-const googleBtn = document.getElementById('googleBtn');
-const provider = new firebase.auth.GoogleAuthProvider();
-
-googleBtn.addEventListener('click', () => {
-    auth.signInWithPopup(provider);
-});
