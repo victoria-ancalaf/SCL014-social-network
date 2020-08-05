@@ -106,3 +106,10 @@ enterBtn.addEventListener('click', () => {
 googleBtn.addEventListener('click', () => {
     auth.signInWithPopup(provider);
 });
+
+// MOSTRAR Y OCULTAR MENU DESPLEGABLE (SIDEBAR)
+document.querySelector('.toggle-btn').addEventListener('click', showSidebar);
+
+function showSidebar() {
+    document.getElementById('sidebar').classList.toggle('active');
+}
