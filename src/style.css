@@ -105,15 +105,13 @@
             padding-top: 25px;
         }
         
-        .material-icons {
-            width: 55px;
-            color: white;
-        }
-        
+
+        /* TIMELINE */
+
         .screen2 {
             display: none;
             flex-wrap: wrap;
-            flex-direction: row;
+            flex-direction: column;
         }
         
         header {
@@ -188,11 +186,18 @@
         
         .footer {
             display: flex;
+            justify-content: space-around;
             background-color: #00C6CE;
             width: 100%;
             position: fixed;
             bottom: 0;
         }
+
+        .material-icons {
+            width: 150px;
+            color: white;
+        }
+        
         /*MQ escritorio */
         
         @media screen and (min-width: 768px) {
