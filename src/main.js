@@ -3,8 +3,12 @@
 import {
     myFunction
 } from './lib/index.js';
+// import {
+//     routing
+// } from './lib/Router';
 
 myFunction();
+// routing()
 
 const loginPage = document.getElementById('first-screen');
 const registerPage = document.getElementById('register-screen');
@@ -33,30 +37,30 @@ function register() {
     const password = document.getElementById('new-password').value;
 
     firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then(resp => {
-      registerPage.style.display = 'none';
-      screenTwo.style.display = 'flex';
-    })
-    .catch(function(error) {
-        // Handle Errors here.
-        console.log(error)
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        switch (errorCode) {
-            case 'auth/email-already-in-use':
+        .then(resp => {
+            registerPage.style.display = 'none';
+            screenTwo.style.display = 'flex';
+        })
+        .catch(function(error) {
+            // Handle Errors here.
+            console.log(error)
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            switch (errorCode) {
+                case 'auth/email-already-in-use':
                     alert('Email en uso.');
-                break;
-            case 'auth/invalid-email':
+                    break;
+                case 'auth/invalid-email':
                     alert('Email inválido.');
-                break;
-            case 'auth/weak-password':
-                    alert('La contraseña es demasiado débil.');   
-                break;
-            default:
-                alert(errorMessage);
-        };
-        console.log(error);
-    })
+                    break;
+                case 'auth/weak-password':
+                    alert('La contraseña es demasiado débil.');
+                    break;
+                default:
+                    alert(errorMessage);
+            };
+            console.log(error);
+        })
 };
 
 newUserBtn.addEventListener('click', () => {
@@ -69,29 +73,29 @@ function loginApp() {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     firebase.auth().signInWithEmailAndPassword(email, password)
-    .then(resp => {
-      loginPage.style.display = 'none';
-      screenTwo.style.display = 'flex';
-    })
-    .catch(function(error) {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        switch (errorCode) {
-            case 'auth/invalid-email':
-                alert('Email incorrecto.');
-                break;
-            case 'auth/user-not-found':
-                alert('Usuario no encontrado.');
-                break;
-            case 'auth/wrong-password':
-                  alert('Contraseña incorrecta.');
-                break;
-            default:
-                alert(errorMessage);
-        };
-        console.log(error);
-    });
+        .then(resp => {
+            loginPage.style.display = 'none';
+            screenTwo.style.display = 'flex';
+        })
+        .catch(function(error) {
+            // Handle Errors here.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            switch (errorCode) {
+                case 'auth/invalid-email':
+                    alert('Email incorrecto.');
+                    break;
+                case 'auth/user-not-found':
+                    alert('Usuario no encontrado.');
+                    break;
+                case 'auth/wrong-password':
+                    alert('Contraseña incorrecta.');
+                    break;
+                default:
+                    alert(errorMessage);
+            };
+            console.log(error);
+        });
 };
 
 
@@ -101,24 +105,24 @@ enterBtn.addEventListener('click', () => {
 
 
 
-function goggleLogin () {
-  provider.addScope('profile');
-  provider.addScope('email');
-  firebase.auth().signInWithPopup(provider).then(function(result) {
-    // This gives you a Google Access Token.
-    var token = result.credential.accessToken;
-    // The signed-in user info.
-    var user = result.user;
-  })
-  .then(resp => {
-      registerPage.style.display = 'none';
-      screenTwo.style.display = 'flex';
-  })  
+function goggleLogin() {
+    provider.addScope('profile');
+    provider.addScope('email');
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+            // This gives you a Google Access Token.
+            var token = result.credential.accessToken;
+            // The signed-in user info.
+            var user = result.user;
+        })
+        .then(resp => {
+            registerPage.style.display = 'none';
+            screenTwo.style.display = 'flex';
+        })
 };
 
 
 googleBtn.addEventListener('click', () => {
-  goggleLogin ();
+    goggleLogin();
 });
 
 
