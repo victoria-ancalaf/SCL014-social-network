@@ -1,7 +1,7 @@
-//Aquí la pantalla de inicio de sesión
+// Aquí la pantalla de inicio de sesión
 
 export const logIn = () => {
-    const viewLogIn = `
+  const viewLogIn = `
 <div id="first-screen" class="login-page">
         <aside class="first-aside"></aside>
         <main class="user-login">
@@ -14,5 +14,5 @@ export const logIn = () => {
             <p id="register" class="register-btn">O <a href ="#/RegisterTemplate>regístrate.</a></p>
         </main>
     </div>`;
-    return viewLogIn;
-}
+  return viewLogIn;
+};

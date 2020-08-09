@@ -1,7 +1,7 @@
 // Aquí la pantalla de registro
 
 export const signUp = () => {
-    const viewSignUp = `
+  const viewSignUp = `
     <div id="register-screen" class="login-2page">
         <aside class="second-aside"></aside>
         <main class="user-login">
@@ -16,5 +16,5 @@ export const signUp = () => {
 
         </main>
     </div>`;
-    return viewSignUp;
-}
+  return viewSignUp;
+};
