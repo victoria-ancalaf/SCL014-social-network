@@ -1,7 +1,11 @@
 // Aquí la pantalla de inicio de sesión
+import {
+    loginApp
+} from '../index.js';
 
 export const logIn = () => {
-  const viewLogIn = `
+    const divLogin = document.createElement('div');
+    const viewLogIn = `
 <div id="first-screen" class="login-page">
         <aside class="first-aside"></aside>
         <main class="user-login">
@@ -11,8 +15,18 @@ export const logIn = () => {
             <label for="password"></label>
             <input type="password" id="password" class="log-input" placeholder="Contraseña"></input>
             <button type="button" id="enterBtn" class="enter-btn">Iniciar sesión</button>
-            <p id="register" class="register-btn">O <a href ="#/RegisterTemplate>regístrate.</a></p>
+            <h2>O <a href="#/RegisterTemplate">regístrate</a>.</h2>
         </main>
-    </div>`;
-  return viewLogIn;
+    </div>`
+
+    divLogin.innerHTML += viewLogIn;
+
+    const enterBtn = divLogin.querySelector('#enterBtn');
+    enterBtn.addEventListener('click', () => {
+        // Ingresar con cuenta registrada
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        loginApp(email, password);
+    })
+    return viewLogIn;
 };

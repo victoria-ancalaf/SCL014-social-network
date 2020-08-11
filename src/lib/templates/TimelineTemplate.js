@@ -1,7 +1,8 @@
 // Aquí van las publicaciones de timeline o muro principal
 
 export const timeLine = () => {
-  const viewTimeLine = `
+    const feedWall = document.createElement('div');
+    const viewTimeLine = `
     <div id="screen-two" class="screen2">
         <header>
             <h1 class="titleHeader">NeighTalk</h1>
@@ -30,5 +31,6 @@ export const timeLine = () => {
             </footer>
         </div>
     </div>`;
-  return viewTimeLine;
+    feedWall.innerHTML += viewTimeLine;
+    return viewTimeLine;
 };
