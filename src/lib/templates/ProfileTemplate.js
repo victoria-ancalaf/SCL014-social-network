@@ -1,8 +1,8 @@
 // Pantalla de perfil usuario
 
 export const profile = () => {
-    const divProfile = document.createElement('div');
-    const viewProfile = `
+  const divProfile = document.createElement('div');
+  const viewProfile = `
 <div id="profile-screen" class="screen2">
         <header>
             <img class="titleHeader" src="img/neightalk2.png">
@@ -32,18 +32,18 @@ export const profile = () => {
             <span class="material-icons">search</span>
             <span class="material-icons"><a href="#/ProfileTemplate">account_circle</a></span>
         </footer>
-    </div>`
+    </div>`;
 
-    divProfile.innerHTML = viewProfile;
-    // MOSTRAR Y OCULTAR MENU DESPLEGABLE (SIDEBAR)
+  divProfile.innerHTML = viewProfile;
 
-    function showSidebar() {
-        document.getElementById('sidebar').classList.toggle('active');
-    }
-    const toggle = divProfile.querySelector('.toggle-btn');
-    toggle.addEventListener('click', () => {
-        showSidebar();
-    });
+  // MOSTRAR Y OCULTAR MENU DESPLEGABLE (SIDEBAR)
+  function showSidebar() {
+    document.getElementById('sidebar').classList.toggle('active');
+  }
+  const toggle = divProfile.querySelector('.toggle-btn');
+  toggle.addEventListener('click', () => {
+    showSidebar();
+  });
 
-    return divProfile;
+  return divProfile;
 };
