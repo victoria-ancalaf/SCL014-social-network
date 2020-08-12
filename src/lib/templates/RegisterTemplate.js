@@ -1,12 +1,12 @@
 // Aquí la pantalla de registro
 import {
-    register,
-    googleLogin,
+  register,
+  googleLogin,
 } from '../index.js';
 
 export const signUp = () => {
-    const registerTemplate = document.createElement('div');
-    const viewSignUp = `
+  const registerTemplate = document.createElement('div');
+  const viewSignUp = `
     <div id="register-screen" class="login-2page">
         <aside class="second-aside"></aside>
         <main class="user-login">
@@ -20,25 +20,25 @@ export const signUp = () => {
             <button id= "googleBtn"class="google"><img src="img/google.png"></button>
 
         </main>
-    </div>`
-    registerTemplate.innerHTML = viewSignUp;
+    </div>`;
 
-    const newUserBtn = registerTemplate.querySelector('#newUserBtn');
+  registerTemplate.innerHTML = viewSignUp;
 
-    newUserBtn.addEventListener('click', () => {
-        // Ingresar con cuenta nueva
-        const email = document.getElementById('new-email').value;
-        const password = document.getElementById('new-password').value;
-        console.log(email, password);
-        register(email, password);
-    });
-    //Botón google
-    const googleBtn = registerTemplate.querySelector('#googleBtn');
-    googleBtn.addEventListener('click', () => {
-        const provider = new firebase.auth.GoogleAuthProvider();
-        // Ingresar con cuenta google
-        googleLogin(provider);
-    })
+  const newUserBtn = registerTemplate.querySelector('#newUserBtn');
+  newUserBtn.addEventListener('click', () => {
+    // Ingresar con cuenta nueva
+    const email = document.getElementById('new-email').value;
+    const password = document.getElementById('new-password').value;
+    register(email, password);
+  });
 
-    return registerTemplate;
+  // Botón google
+  const googleBtn = registerTemplate.querySelector('#googleBtn');
+  googleBtn.addEventListener('click', () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    // Ingresar con cuenta google
+    googleLogin(provider);
+  });
+
+  return registerTemplate;
 };

@@ -38,7 +38,6 @@
                 font-size: 16px;
                 color: #555555;
                 font-family: 'Assistant', sans-serif;
-                font-size: 20px;
             }
             
             .log-input {
@@ -154,7 +153,6 @@
                 background-color: #00C6CE;
                 transition: all 0.75s ease-in-out;
                 border-bottom-right-radius: 20px;
-                z-index: 2;
             }
             
             #sidebar .toggle-btn {
@@ -276,13 +274,12 @@
                 }
                 .user-login {
                     display: flex;
+                    width: 50%
                 }
                 .user-login img {
                     margin-bottom: 20px;
                 }
-                .user-login {
-                    width: 50%
-                }
+
                 .second-aside {
                     display: flex;
                     width: 50%;

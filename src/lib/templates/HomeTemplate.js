@@ -1,11 +1,11 @@
 // Aquí la pantalla de inicio de sesión
 import {
-    loginApp
+  loginApp,
 } from '../index.js';
 
 export const logIn = () => {
-    const divLogin = document.createElement('div');
-    const viewLogIn = `
+  const divLogin = document.createElement('div');
+  const viewLogIn = `
 <div id="first-screen" class="login-page">
         <aside class="first-aside"></aside>
         <main class="user-login">
@@ -17,18 +17,16 @@ export const logIn = () => {
             <button type="button" id="enterBtn" class="enter-btn">Iniciar sesión</button>
             <h3 class="linked">O <a href="#/RegisterTemplate" class = "linked">regístrate</a>.</h3>
         </main>
-    </div>`
+    </div>`;
 
-    divLogin.innerHTML = viewLogIn;
+  divLogin.innerHTML = viewLogIn;
 
-    const accessBtn = divLogin.querySelector('#enterBtn');
-
-    accessBtn.addEventListener('click', () => {
-        // Ingresar con cuenta registrada
-        const eMail = document.getElementById('email').value;
-        const password1 = document.getElementById('password').value;
-        console.log(eMail, password1);
-        loginApp(eMail, password1);
-    })
-    return divLogin;
+  const accessBtn = divLogin.querySelector('#enterBtn');
+  accessBtn.addEventListener('click', () => {
+    // Ingresar con cuenta registrada
+    const eMail = document.getElementById('email').value;
+    const password1 = document.getElementById('password').value;
+    loginApp(eMail, password1);
+  });
+  return divLogin;
 };
