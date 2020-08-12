@@ -2,75 +2,76 @@
 /*  export const myFunction = () => {
  
 };  */
-
-// Crear una cuenta nueva
-export function register (email, password, registerPage, screenTwo) {
-  firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then(resp => {
-      registerPage.style.display = 'none';
-      screenTwo.style.display = 'flex';
-    })
-    .catch(function(error) {
-      // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      switch (errorCode) {
-        case 'auth/email-already-in-use':
-          alert('Email en uso.');
-          break;
-        case 'auth/invalid-email':
-          alert('Email inválido.');
-          break;
-        case 'auth/weak-password':
-          alert('La contraseña es demasiado débil.');
-          break;
-        default:
-          alert(errorMessage);
-      };
-    });
+// Ingresar con cuenta registrada
+export function loginApp(eMail, password1) {
+    firebase.auth().signInWithEmailAndPassword(eMail, password1)
+        .then(user => {
+            if (user != null) {
+                window.location.hash = '#/TimelineTemplate';
+            } else {
+                window.location.hash = '#/';
+            }
+        })
+        .catch(function error() {
+            // Handle Errors here.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            switch (errorCode) {
+                case 'auth/invalid-email':
+                    alert('Email incorrecto.');
+                    break;
+                case 'auth/user-not-found':
+                    alert('Usuario no encontrado.');
+                    break;
+                case 'auth/wrong-password':
+                    alert('Contraseña incorrecta.');
+                    break;
+                default:
+                    alert(errorMessage);
+            };
+        });
 };
 
+// Crear una cuenta nueva
 
-// Ingresar con cuenta registrada
-export function loginApp(email, password, loginPage, screenTwo) {  
-  firebase.auth().signInWithEmailAndPassword(email, password)
-    .then(resp => {
-      loginPage.style.display = 'none';
-      screenTwo.style.display = 'flex';
-    })
-    .catch(function error() {
-      // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      switch (errorCode) {
-        case 'auth/invalid-email':
-          alert('Email incorrecto.');
-          break;
-        case 'auth/user-not-found':
-          alert('Usuario no encontrado.');
-          break;
-        case 'auth/wrong-password':
-          alert('Contraseña incorrecta.');
-          break;
-        default:
-          alert(errorMessage);
-      };
-    });
+export function register(email, password) {
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then(user => {
+            if (user != null) {
+                window.location.hash = '#/TimelineTemplate';
+            } else {
+                window.location.hash = '#/';
+            }
+        })
+        .catch(function(error) {
+            // Handle Errors here.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            switch (errorCode) {
+                case 'auth/email-already-in-use':
+                    alert('Email en uso.');
+                    break;
+                case 'auth/invalid-email':
+                    alert('Email inválido.');
+                    break;
+                case 'auth/weak-password':
+                    alert('La contraseña es demasiado débil.');
+                    break;
+                default:
+                    alert(errorMessage);
+            };
+        });
 };
 
 
 // Ingresar con cuenta Google
-export function goggleLogin(provider, registerPage, screenTwo) {
-  provider.addScope('profile');
-  provider.addScope('email');
-  firebase.auth().signInWithPopup(provider).then(function(result) {
-    // This gives you a Google Access Token.
-    const token = result.credential.accessToken;
-    // The signed-in user info.
-    const user = result.user;
-  })
-    .then(resp => {
-      registerPage.style.display = 'none';
-      screenTwo.style.display = 'flex';
-    })
+export function googleLogin(provider) {
+    firebase.auth().signInWithPopup(provider)
+        .then(user => {
+            if (user != null) {
+                window.location.hash = '#/TimelineTemplate';
+            } else {
+                window.location.hash = '#/';
+            }
+        })
 };

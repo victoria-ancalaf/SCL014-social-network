@@ -1,55 +1,54 @@
 // Llamamos a las funciones de las rutas
 
 import {
-  logIn,
+    logIn,
 } from './templates/HomeTemplate.js';
 import {
-  signUp,
+    signUp,
 } from './templates/RegisterTemplate.js';
 import {
-  timeLine,
+    timeLine,
 } from './templates/TimelineTemplate.js';
 import {
-  profile,
+    profile,
 } from './templates/ProfileTemplate.js';
 
 // Dar la orden según el caso y exportar variable para ir cambiando las rutas
 
 const templates = (hash) => {
-  const root = document.getElementById('root');
-  root.innerHTML = logIn();
+    const root = document.getElementById('root');
+    root.innerHTML = '';
 
-  switch (hash) {
-    case '#/':
-      root.appendChild(logIn());
-      break;
-    case '#/RegisterTemplate':
-      break;
-      root.appendChild(signUp());
-      break;
-    case '#/TimelineTemplate':
-      root.appendChild(timeLine());
-      break;
-    case '#/PofileTemplate':
-      root.appendChild(profile());
-      break;
-    default:
-      root.innerHTML = `<h1>Oops! aquí no hay nada que ver</h1>`;
-  }
+    switch (hash) {
+        case '#/':
+            root.appendChild(logIn());
+            break;
+        case '#/RegisterTemplate':
+            root.appendChild(signUp());
+            break;
+        case '#/TimelineTemplate':
+            root.appendChild(timeLine());
+            break;
+        case '#/ProfileTemplate':
+            root.appendChild(profile());
+            break;
+        default:
+            root.innerHTML = `<h1>Oops! aquí no hay nada que ver</h1>`;
+    }
 };
 
 export const routing = (hash) => {
-  if (hash === '#/') {
+    if (hash === '#/') {
+        return templates(hash);
+    }
+    if (hash === '#/RegisterTemplate') {
+        return templates(hash);
+    }
+    if (hash === '#/TimelineTemplate') {
+        return templates(hash);
+    }
+    if (hash === '#/ProfileTemplate') {
+        return templates(hash);
+    }
     return templates(hash);
-  }
-  if (hash === '#/RegisterTemplate') {
-    return templates(hash);
-  }
-  if (hash === '#/TimelineTemplate') {
-    return templates(hash);
-  }
-  if (hash === '#/ProfileTemplate') {
-    return templates(hash);
-  }
-  return templates(hash);
 };
