@@ -1,5 +1,6 @@
 // eslint prefer-arrow-callback: 0
 
+
 // Ingresar con cuenta registrada
 export function loginApp(eMail, password1) {
   firebase.auth().signInWithEmailAndPassword(eMail, password1)
