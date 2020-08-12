@@ -1,8 +1,8 @@
 // Aquí van las publicaciones de timeline o muro principal
 
 export const timeLine = () => {
-    const feedWall = document.createElement('div');
-    const viewTimeLine = `
+  const feedWall = document.createElement('div');
+  const viewTimeLine = `
     <div id="screen-two" class="screen2">
         <header>
             <img class="titleHeader" src="img/neightalk2.png">
@@ -31,16 +31,17 @@ export const timeLine = () => {
             </footer>
         </div>
     </div>`;
-    feedWall.innerHTML = viewTimeLine;
-    // MOSTRAR Y OCULTAR MENU DESPLEGABLE (SIDEBAR)
 
-    function showSidebar() {
-        document.getElementById('sidebar').classList.toggle('active');
-    }
-    const toggle = feedWall.querySelector('.toggle-btn');
-    toggle.addEventListener('click', () => {
-        showSidebar();
-    });
+  feedWall.innerHTML = viewTimeLine;
 
-    return feedWall;
+  // MOSTRAR Y OCULTAR MENU DESPLEGABLE (SIDEBAR)
+  function showSidebar() {
+    document.getElementById('sidebar').classList.toggle('active');
+  }
+  const toggle = feedWall.querySelector('.toggle-btn');
+  toggle.addEventListener('click', () => {
+    showSidebar();
+  });
+
+  return feedWall;
 };
