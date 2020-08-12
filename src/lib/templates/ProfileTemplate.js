@@ -1,8 +1,8 @@
 // Pantalla de perfil usuario
 
 export const profile = () => {
-  const divProfile = document.createElement('div');
-  const viewProfile = `
+    const divProfile = document.createElement('div');
+    const viewProfile = `
 <div id="profile-screen" class="screen2">
         <header>
             <img class="titleHeader" src="img/neightalk2.png">
@@ -19,7 +19,7 @@ export const profile = () => {
                     </li>
                     <li><a href="#/TimelineTemplate">Inicio</a></li>
                     <li>Amigos</li>
-                    <li>Cerrar Sesión</li>
+                    <li><a href="#/">Cerrar Sesión</a></li>
             </div>
         </div>
 <div class="profile">
@@ -28,22 +28,22 @@ export const profile = () => {
         <div class="user-bio"></div>
         <button type="button" class="editBtn">Editar perfil</button>
         <footer class="footer">
-            <span class="material-icons">home</span>
-            <span class="material-icons">search</span>
-            <span class="material-icons"><a href="#/ProfileTemplate">account_circle</a></span>
+        <img src="img/home.png" class="icons">
+        <img src="img/search.png" class="icons">
+        <a href="#/ProfileTemplate"><img src="img/profile.png" class="icons"></a>
         </footer>
     </div>`;
 
-  divProfile.innerHTML = viewProfile;
+    divProfile.innerHTML = viewProfile;
 
-  // MOSTRAR Y OCULTAR MENU DESPLEGABLE (SIDEBAR)
-  function showSidebar() {
-    document.getElementById('sidebar').classList.toggle('active');
-  }
-  const toggle = divProfile.querySelector('.toggle-btn');
-  toggle.addEventListener('click', () => {
-    showSidebar();
-  });
+    // MOSTRAR Y OCULTAR MENU DESPLEGABLE (SIDEBAR)
+    function showSidebar() {
+        document.getElementById('sidebar').classList.toggle('active');
+    }
+    const toggle = divProfile.querySelector('.toggle-btn');
+    toggle.addEventListener('click', () => {
+        showSidebar();
+    });
 
-  return divProfile;
+    return divProfile;
 };
