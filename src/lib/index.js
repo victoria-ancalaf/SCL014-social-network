@@ -1,7 +1,3 @@
-// aqui exportaras las funciones que necesites
-/*  export const myFunction = () => {
- 
-};  */
 // Ingresar con cuenta registrada
 export function loginApp(eMail, password1) {
     firebase.auth().signInWithEmailAndPassword(eMail, password1)
