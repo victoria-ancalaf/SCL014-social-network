@@ -1,11 +1,18 @@
+import {
+    timelinePost,
+    timelineRead,
+    showAllPost,
+} from '../index.js'
+
 // Aquí van las publicaciones de timeline o muro principal
 
 export const timeLine = () => {
-  const feedWall = document.createElement('div');
-  const viewTimeLine = `
+    const feedWall = document.createElement('div');
+    const viewTimeLine = `
     <div id="screen-two" class="screen2">
         <header>
             <img class="titleHeader" src="img/neightalk2.png">
+            <div id="showName"></div>
         </header>
         <!-- Menu desplegable-->
         <div id="sidebar" class="hidden">
@@ -19,29 +26,54 @@ export const timeLine = () => {
                     </li>
                     <li><a href="#/ProfileTemplate">Perfil</a></li>
                     <li>Amigos</li>
-                    <li>Cerrar Sesión</li>
+                    <li><a href="#/">Cerrar Sesión</a></li>
             </div>
         </div>
-        <input type=text></input>
+        <div class="myPost">
+        <input type="text" id="titleInput" class="titleInput" placeholder="¿Dónde estás?"></input>
+        <textarea type="textarea" id="txtArea" class="txt" placeholder="¿Qué está pasando?" style="overflow:hidden"></textarea>
+        <button type="button" id="postBtn" class="btnPost">Postear</button>
+        </div>
+        <div id="outputPost" class="posts"></div>
         <div>
             <footer class="footer">
-                <span class="material-icons">home</span>
-                <span class="material-icons">search</span>
-                <span class="material-icons"><a href="#/ProfileTemplate">account_circle</a></span>
+                <img src="img/home.png" class="icons">
+                <img src="img/search.png" class="icons">
+                <a href="#/ProfileTemplate"><img src="img/profile.png" class="icons"></a>
             </footer>
         </div>
     </div>`;
 
-  feedWall.innerHTML = viewTimeLine;
+    feedWall.innerHTML = viewTimeLine;
 
-  // MOSTRAR Y OCULTAR MENU DESPLEGABLE (SIDEBAR)
-  function showSidebar() {
-    document.getElementById('sidebar').classList.toggle('active');
-  }
-  const toggle = feedWall.querySelector('.toggle-btn');
-  toggle.addEventListener('click', () => {
-    showSidebar();
-  });
+    // MOSTRAR Y OCULTAR MENU DESPLEGABLE (SIDEBAR)
+    function showSidebar() {
+        document.getElementById('sidebar').classList.toggle('active');
+    }
+    const toggle = feedWall.querySelector('.toggle-btn');
+    toggle.addEventListener('click', () => {
+        showSidebar();
+    });
 
-  return feedWall;
+    const auth = firebase.auth();
+    const showName = feedWall.querySelector('#showName');
+    auth.onAuthStateChanged(user => {
+        if (user) {
+            showName.innerHTML = `<h3>Hola ${user.displayName}</h3>`;
+            showAllPost();
+        } else {
+            showName.innerHTML = '';
+        }
+    });
+
+    //Función para traer id de text area 
+    feedWall.querySelector('#postBtn').addEventListener('click', () => {
+        const inputTitle = document.getElementById('titleInput').value;
+        const inputPost = document.getElementById('txtArea').value;
+        timelinePost(inputTitle, inputPost);
+    })
+
+    timelineRead();
+
+    return feedWall;
 };

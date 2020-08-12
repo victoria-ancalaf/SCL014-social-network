@@ -11,14 +11,3 @@ const init = () => {
     });
 };
 window.addEventListener('load', init);
-
-
-// const auth = firebase.auth();
-// const showName = document.getElementById('showName');
-// auth.onAuthStateChanged(user => {
-//     if (user) {
-//         showName.innerHTML = `<h3>Hola ${user.displayName}</h3>`;
-//     } else {
-//         showName.innerHTML = '';
-//     }
-// });
