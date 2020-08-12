@@ -17,19 +17,19 @@ import {
 
 const templates = (hash) => {
     const root = document.getElementById('root');
-    root.innerHTML = logIn();
+    root.innerHTML = '';
 
     switch (hash) {
         case '#/':
             root.appendChild(logIn());
             break;
         case '#/RegisterTemplate':
-            root.innerHTML = signUp();
+            root.appendChild(signUp());
             break;
         case '#/TimelineTemplate':
             root.appendChild(timeLine());
             break;
-        case '#/PofileTemplate':
+        case '#/ProfileTemplate':
             root.appendChild(profile());
             break;
         default:

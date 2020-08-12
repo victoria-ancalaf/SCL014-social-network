@@ -15,18 +15,20 @@ export const logIn = () => {
             <label for="password"></label>
             <input type="password" id="password" class="log-input" placeholder="Contraseña"></input>
             <button type="button" id="enterBtn" class="enter-btn">Iniciar sesión</button>
-            <h2>O <a href="#/RegisterTemplate">regístrate</a>.</h2>
+            <h3 class="linked">O <a href="#/RegisterTemplate" class = "linked">regístrate</a>.</h3>
         </main>
     </div>`
 
-    divLogin.innerHTML += viewLogIn;
+    divLogin.innerHTML = viewLogIn;
 
-    const enterBtn = divLogin.querySelector('#enterBtn');
-    enterBtn.addEventListener('click', () => {
+    const accessBtn = divLogin.querySelector('#enterBtn');
+
+    accessBtn.addEventListener('click', () => {
         // Ingresar con cuenta registrada
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-        loginApp(email, password);
+        const eMail = document.getElementById('email').value;
+        const password1 = document.getElementById('password').value;
+        console.log(eMail, password1);
+        loginApp(eMail, password1);
     })
-    return viewLogIn;
+    return divLogin;
 };

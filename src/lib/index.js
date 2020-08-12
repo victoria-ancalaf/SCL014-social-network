@@ -3,11 +3,14 @@
  
 };  */
 // Ingresar con cuenta registrada
-export function loginApp(email, password) {
-    firebase.auth().signInWithEmailAndPassword(email, password)
-        .then(resp => {
-            loginPage.style.display = 'none';
-            screenTwo.style.display = 'flex';
+export function loginApp(eMail, password1) {
+    firebase.auth().signInWithEmailAndPassword(eMail, password1)
+        .then(user => {
+            if (user != null) {
+                window.location.hash = '#/TimelineTemplate';
+            } else {
+                window.location.hash = '#/';
+            }
         })
         .catch(function error() {
             // Handle Errors here.
@@ -30,11 +33,15 @@ export function loginApp(email, password) {
 };
 
 // Crear una cuenta nueva
-export function register(email, password, registerPage, screenTwo) {
+
+export function register(email, password) {
     firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then(resp => {
-            registerPage.style.display = 'none';
-            screenTwo.style.display = 'flex';
+        .then(user => {
+            if (user != null) {
+                window.location.hash = '#/TimelineTemplate';
+            } else {
+                window.location.hash = '#/';
+            }
         })
         .catch(function(error) {
             // Handle Errors here.
@@ -59,13 +66,12 @@ export function register(email, password, registerPage, screenTwo) {
 
 // Ingresar con cuenta Google
 export function googleLogin(provider) {
-    provider.addScope('profile');
-    provider.addScope('email');
-    firebase.auth().signInWithPopup(provider).then(function(result) {
-        // This gives you a Google Access Token.
-        const token = result.credential.accessToken;
-        // The signed-in user info.
-        const user = result.user;
-
-    })
+    firebase.auth().signInWithPopup(provider)
+        .then(user => {
+            if (user != null) {
+                window.location.hash = '#/TimelineTemplate';
+            } else {
+                window.location.hash = '#/';
+            }
+        })
 };

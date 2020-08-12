@@ -1,259 +1,294 @@
-        * {
-            padding: 0;
-            margin: 0;
-        }
-        
-        body {
-            background-image: url(img/BG.png);
-            background-repeat: repeat;
-            padding: 0px;
-            margin: 0px auto;
-            height: 100%;
-        }
-        
-        .login-page {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            font-family: 'Assistant', sans-serif;
-        }
-        
-        .logo {
-            width: 250px;
-        }
-        
-        .user-login {
-            display: flex;
-            width: 100%;
-            height: auto;
-            align-items: center;
-            flex-direction: column;
-        }
-        
-        .user-login img {
-            margin-bottom: 10px;
-        }
-        
-        .user-login label {
-            font-size: 16px;
-            color: #555555;
-            font-family: 'Assistant', sans-serif;
-            font-size: 20px;
-        }
-        
-        .log-input {
-            width: 274px;
-            height: 38px;
-            background: #F1F1F1;
-            border-radius: 10px;
-            padding: 10px;
-            border-color: #00C6CE;
-            margin: 18px;
-            text-align: center;
-            color: #7C7D7E;
-            font-size: 14px;
-            outline: none;
-        }
-        
-        .user-login:focus {
-            outline: none !important;
-        }
-        
-        .enter-btn {
-            width: 123px;
-            height: 41px;
-            background-color: #00C6CE;
-            border: 3px #555555;
-            border-radius: 8px;
-            font-size: 18px;
-            color: #FFFFFF;
-            font-family: 'Assistant', sans-serif;
-            cursor: pointer;
-        }
-        
-        .enter-btn:hover {
-            border: 3px #555555;
-            background-color: #38D8C9;
-        }
-        
-        .register-btn {
-            margin-top: 70px;
-            font-size: 18px;
-            color: #00C6CE;
-            background: none;
-            cursor: pointer;
-        }
-        
-        .login-2page {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            font-family: 'Assistant', sans-serif;
-            font-size: 14px;
-        }
-        
-        .google {
-            width: 80px;
-            cursor: pointer;
-            margin-top: 15px;
-        }
-        
-        .text {
-            font-family: 'Assistant', sans-serif;
-            font-size: 16px;
-            color: #555555;
-            padding-top: 25px;
-        }
-        /* TIMELINE */
-        
-        .screen2 {
-            display: flex;
-            flex-wrap: wrap;
-            flex-direction: column;
-        }
-        
-        header {
-            color: #F1F1F1;
-            background-color: #00C6CE;
-            font-family: 'Assistant', sans-serif;
-            text-align: center;
-            height: 50px;
-        }
-        /* Menú Desplegable */
-        
-        .menu {
-            align-items: center;
-            width: 100px;
-        }
-        
-        #sidebar {
-            position: fixed;
-            text-align: center;
-            z-index: 2;
-            width: 200px;
-            left: -200px;
-            height: auto;
-            background-color: #00C6CE;
-            transition: all 0.75s ease-in-out;
-            border-bottom-right-radius: 20px;
-            z-index: 2;
-        }
-        
-        #sidebar .toggle-btn {
-            position: absolute;
-            left: 220px;
-            top: 0px;
-            cursor: pointer;
-        }
-        
-        #sidebar.active {
-            left: 0;
-        }
-        
-        #sidebar .toggle-btn span {
-            display: block;
-            width: 30px;
-            text-align: center;
-            font-size: 30px;
-            border: 2px solid #555555;
-            border-radius: 10px;
-            color: #555555;
-            background-color: white;
-            margin-top: 10px;
-        }
-        
-        #sidebar ul li {
-            text-decoration: none !important;
-            font-family: 'Assistant', sans-serif;
-            text-align: center;
-            font-size: 20px;
-            color: white;
-            border-top: 2px solid #fff;
-            padding: 15px 10px;
-        }
-        
-        #sidebar ul li a {
-            text-decoration: none;
-            color: white;
-        }
-        
-        #sidebar ul li:hover {
-            background-image: linear-gradient(119.36deg, #38D8C9 0%, #00C6CE 100%);
-            border-bottom-right-radius: 20px;
-        }
-        
-        .footer {
-            display: flex;
-            justify-content: space-around;
-            background-color: #00C6CE;
-            width: 100%;
-            position: fixed;
-            bottom: 0;
-        }
-        
-        .material-icons {
-            width: 150px;
-            color: white;
-        }
-        
-        .profile {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            flex-direction: column;
-        }
-        
-        .user-name {
-            width: 244px;
-            height: 40px;
-            background-color: #00C6CE;
-            font-family: 'Assistant', sans-serif;
-            color: #FFFFFF;
-            font-weight: bold;
-            font-size: 24px;
-            line-height: 31px;
-            border-radius: 5px;
-            text-align: center;
-        }
-        
-        .user-bio {
-            width: 242px;
-            height: 208px;
-            background-color: #FFFFFF;
-            border: 1px solid #00C6CE;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
-        
-        .editBtn {
-            width: 92px;
-            height: 20px;
-            background-color: #38D8C9;
-            border: 1px solid #00A79D;
-            border-radius: 5px;
-            font-family: 'Assistant', sans-serif;
-            color: #FFFFFF;
-        }
-        /*MQ escritorio */
-        
-        @media screen and (min-width: 768px) {
-            .first-aside {
-                display: flex;
-                width: 50%;
-                height: 39rem;
-                background-image: url(img/casitas.jpg);
-                background-repeat: no-repeat;
-                background-size: cover;
+            * {
+                padding: 0;
+                margin: 0;
             }
+            
+            body {
+                background-image: url(img/BG.png);
+                background-repeat: repeat;
+                padding: 0px;
+                margin: 0px auto;
+                height: 100%;
+            }
+            
+            .login-page {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                font-family: 'Assistant', sans-serif;
+            }
+            
+            .logo {
+                width: 250px;
+            }
+            
             .user-login {
-                width: 50%
-            }
-            .second-aside {
                 display: flex;
-                width: 50%;
-                height: 39rem;
-                background-image: url(img/street.jpg);
-                background-repeat: no-repeat;
-                background-size: cover;
+                width: 100%;
+                height: auto;
+                align-items: center;
+                flex-direction: column;
             }
-        }
+            
+            .user-login img {
+                margin-bottom: 10px;
+            }
+            
+            .user-login label {
+                font-size: 16px;
+                color: #555555;
+                font-family: 'Assistant', sans-serif;
+                font-size: 20px;
+            }
+            
+            .log-input {
+                width: 274px;
+                height: 38px;
+                background: #F1F1F1;
+                border-radius: 10px;
+                padding: 10px;
+                border-color: #00C6CE;
+                margin: 18px;
+                text-align: center;
+                color: #7C7D7E;
+                font-size: 14px;
+                outline: none;
+            }
+            
+            .user-login:focus {
+                outline: none !important;
+            }
+            
+            .enter-btn {
+                width: 123px;
+                height: 41px;
+                background-color: #00C6CE;
+                border: 3px #555555;
+                border-radius: 8px;
+                font-size: 18px;
+                color: #FFFFFF;
+                font-family: 'Assistant', sans-serif;
+                cursor: pointer;
+            }
+            
+            .enter-btn:hover {
+                border: 3px #555555;
+                background-color: #38D8C9;
+            }
+            
+            .linked {
+                padding-top: 25px;
+                font-family: 'Assistant', sans-serif;
+                color: #00C6CE;
+            }
+            
+            .register-btn {
+                margin-top: 70px;
+                font-size: 18px;
+                color: #00C6CE;
+                background: none;
+                cursor: pointer;
+            }
+            
+            .login-2page {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                font-family: 'Assistant', sans-serif;
+                font-size: 14px;
+            }
+            
+            .google {
+                cursor: pointer;
+                margin-top: 15px;
+                display: inline-block;
+                border: none;
+                background-color: transparent;
+            }
+            
+            .google img {
+                width: 60px;
+            }
+            
+            .text {
+                font-family: 'Assistant', sans-serif;
+                font-size: 16px;
+                color: #555555;
+                padding-top: 25px;
+            }
+            /* TIMELINE */
+            
+            .screen2 {
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+            }
+            
+            header {
+                color: #F1F1F1;
+                background-color: #00C6CE;
+                font-family: 'Assistant', sans-serif;
+                text-align: center;
+                height: auto;
+            }
+            
+            .titleHeader {
+                width: 150px;
+                border-radius: 8px;
+                margin-top: 8px;
+            }
+            /* Menú Desplegable */
+            
+            .menu {
+                align-items: center;
+                width: 100px;
+            }
+            
+            #sidebar {
+                position: fixed;
+                text-align: center;
+                z-index: 2;
+                width: 200px;
+                left: -200px;
+                height: auto;
+                background-color: #00C6CE;
+                transition: all 0.75s ease-in-out;
+                border-bottom-right-radius: 20px;
+                z-index: 2;
+            }
+            
+            #sidebar .toggle-btn {
+                position: absolute;
+                left: 220px;
+                top: 0px;
+                cursor: pointer;
+            }
+            
+            #sidebar.active {
+                left: 0;
+            }
+            
+            #sidebar .toggle-btn span {
+                display: block;
+                width: 35px;
+                text-align: center;
+                font-size: 30px;
+                border: 2px solid #555555;
+                border-radius: 10px;
+                color: #555555;
+                background-color: white;
+                margin-top: 10px;
+            }
+            
+            #sidebar ul li {
+                text-decoration: none !important;
+                font-family: 'Assistant', sans-serif;
+                text-align: center;
+                font-size: 20px;
+                color: white;
+                border-top: 2px solid #fff;
+                padding: 15px 10px;
+            }
+            
+            #sidebar ul li a {
+                text-decoration: none;
+                color: white;
+            }
+            
+            #sidebar ul li:hover {
+                background-image: linear-gradient(119.36deg, #38D8C9 0%, #00C6CE 100%);
+                border-bottom-right-radius: 20px;
+            }
+            
+            .footer {
+                display: flex;
+                justify-content: space-around;
+                background-color: #00C6CE;
+                width: 100%;
+                position: fixed;
+                bottom: 0;
+            }
+            
+            .material-icons {
+                display: flex;
+                justify-content: space-around;
+                width: 150px;
+                color: white;
+            }
+            
+            .profile {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                flex-direction: column;
+            }
+            
+            .user-name {
+                width: 244px;
+                height: 40px;
+                background-color: #00C6CE;
+                font-family: 'Assistant', sans-serif;
+                color: #FFFFFF;
+                font-weight: bold;
+                font-size: 24px;
+                line-height: 31px;
+                border-radius: 5px;
+                text-align: center;
+            }
+            
+            .user-bio {
+                width: 242px;
+                height: 208px;
+                background-color: #FFFFFF;
+                border: 1px solid #00C6CE;
+                border-radius: 5px;
+                margin-top: 10px;
+            }
+            
+            .editBtn {
+                width: 92px;
+                height: 20px;
+                background-color: #38D8C9;
+                border: 1px solid #00A79D;
+                border-radius: 5px;
+                font-family: 'Assistant', sans-serif;
+                color: #FFFFFF;
+            }
+            /*MQ escritorio */
+            
+            @media screen and (min-width: 768px) {
+                .first-aside {
+                    display: flex;
+                    width: 50%;
+                    height: auto;
+                    background-image: url(img/casitas.jpg);
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                }
+                .login-page {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    font-family: 'Assistant', sans-serif;
+                }
+                .logo {
+                    width: 280px;
+                }
+                .user-login {
+                    display: flex;
+                }
+                .user-login img {
+                    margin-bottom: 20px;
+                }
+                .user-login {
+                    width: 50%
+                }
+                .second-aside {
+                    display: flex;
+                    width: 50%;
+                    height: auto;
+                    background-image: url(img/street.jpg);
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                }
+            }
