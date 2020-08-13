@@ -1,44 +1,44 @@
 // Aquí la pantalla de registro
 import {
-  register,
-  googleLogin,
+    register,
+    googleLogin,
 } from '../index.js';
 
 export const signUp = () => {
-  const registerTemplate = document.createElement('div');
-  const viewSignUp = `
+    const registerTemplate = document.createElement('div');
+    const viewSignUp = `
     <div id="register-screen" class="login-2page">
         <aside class="second-aside"></aside>
-        <main class="user-login">
+        <form class="user-login">
             <img src="img/neightalk.png" class="logo"></img>
             <label for="email"></label>
-            <input type="email" id="new-email" class="log-input" placeholder="Correo electrónico"></input>
+            <input type="email" id="new-email" class="log-input" placeholder="Correo electrónico" autocomplete="username">
             <label for="password"></label>
-            <input type="password" id="new-password" class="log-input" placeholder="Contraseña"></input>
+            <input type="password" id="new-password" class="log-input" placeholder="Contraseña" autocomplete="new-password">
             <button type="button" id="newUserBtn" class="enter-btn">Registrarse</button>
             <p class="text">O inicia sesión con Google:</p>
             <button id= "googleBtn"class="google"><img src="img/google.png"></button>
 
-        </main>
+        </form>
     </div>`;
 
-  registerTemplate.innerHTML = viewSignUp;
+    registerTemplate.innerHTML = viewSignUp;
 
-  const newUserBtn = registerTemplate.querySelector('#newUserBtn');
-  newUserBtn.addEventListener('click', () => {
-    // Ingresar con cuenta nueva
-    const email = document.getElementById('new-email').value;
-    const password = document.getElementById('new-password').value;
-    register(email, password);
-  });
+    const newUserBtn = registerTemplate.querySelector('#newUserBtn');
+    newUserBtn.addEventListener('click', () => {
+        // Ingresar con cuenta nueva
+        const email = document.getElementById('new-email').value;
+        const password = document.getElementById('new-password').value;
+        register(email, password);
+    });
 
-  // Botón google
-  const googleBtn = registerTemplate.querySelector('#googleBtn');
-  googleBtn.addEventListener('click', () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    // Ingresar con cuenta google
-    googleLogin(provider);
-  });
+    // Botón google
+    const googleBtn = registerTemplate.querySelector('#googleBtn');
+    googleBtn.addEventListener('click', () => {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        // Ingresar con cuenta google
+        googleLogin(provider);
+    });
 
-  return registerTemplate;
+    return registerTemplate;
 };

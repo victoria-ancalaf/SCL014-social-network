@@ -112,6 +112,9 @@ export const timelineRead = () => {
                 <p class="comuna">${doc.data().title}</p>
                 <p class="publicacion">${doc.data().content}</p>
             </div>
+            <div class="postIcons">
+            <button id="like" class="likeBtn"><img src="img/heart.png"></button>
+            </div>
         </div>`;
             show.innerHTML += showPostInTimeline;
         });

@@ -36,11 +36,10 @@ export const timeLine = () => {
         </div>
         <div id="outputPost" class="posts"></div>
         <div>
-            <footer class="footer">
-                <img src="img/home.png" class="icons">
-                <img src="img/search.png" class="icons">
-                <a href="#/ProfileTemplate"><img src="img/profile.png" class="icons"></a>
-            </footer>
+        <footer class="footer">
+        <img src="img/search.png" class="icons">
+        <input id= "search" type="search" class="searchBar" placeholder="Busca tu comuna..." autocomplete="off">
+        </footer>
         </div>
     </div>`;
 
@@ -74,6 +73,9 @@ export const timeLine = () => {
     })
 
     timelineRead();
+
+    //Barra de búsqueda
+
 
     return feedWall;
 };
