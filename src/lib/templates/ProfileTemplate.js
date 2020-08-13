@@ -28,9 +28,8 @@ export const profile = () => {
         <div class="user-bio"></div>
         <button type="button" class="editBtn">Editar perfil</button>
         <footer class="footer">
-        <img src="img/home.png" class="icons">
         <img src="img/search.png" class="icons">
-        <a href="#/ProfileTemplate"><img src="img/profile.png" class="icons"></a>
+        <input id= "search" type="search" class="searchBar" placeholder="Busca tu comuna..." autocomplete="off">
         </footer>
     </div>`;
 
