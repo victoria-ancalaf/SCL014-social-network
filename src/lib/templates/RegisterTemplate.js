@@ -34,8 +34,9 @@ export const signUp = () => {
 
     // Botón google
     const googleBtn = registerTemplate.querySelector('#googleBtn');
-    googleBtn.addEventListener('click', () => {
+    googleBtn.addEventListener('click', (e) => {
         const provider = new firebase.auth.GoogleAuthProvider();
+        e.preventDefault();
         // Ingresar con cuenta google
         googleLogin(provider);
     });

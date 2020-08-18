@@ -18,8 +18,6 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 
-
-
 const init = () => {
     document.getElementById('root').appendChild(logIn());
     window.addEventListener('hashchange', () => {

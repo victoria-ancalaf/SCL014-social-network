@@ -11,7 +11,7 @@ export function loginApp(eMail, password1) {
                 window.location.hash = '#/';
             }
         })
-        .catch(function error() {
+        .catch(function(error) {
             // Handle Errors here.
             const errorCode = error.code;
             const errorMessage = error.message;
@@ -42,7 +42,7 @@ export function register(email, password) {
                 window.location.hash = '#/';
             }
         })
-        .catch(function error() {
+        .catch(function(error) {
             // Handle Errors here.
             const errorCode = error.code;
             const errorMessage = error.message;
@@ -64,7 +64,9 @@ export function register(email, password) {
 
 
 // Ingresar con cuenta Google
+
 export function googleLogin(provider) {
+
     firebase.auth().signInWithPopup(provider)
         .then((user) => {
             if (user != null) {
@@ -82,12 +84,14 @@ export const timelinePost = (inputTitle, inputPost) => {
     const db = firebase.firestore();
     const userNt = () => firebase.auth().currentUser;
     const user = userNt();
+    const datePost = new Date();
     db.collection('post').add({
             name: user.displayName,
             uid: user.uid,
             email: user.email,
             title: inputTitle,
             content: inputPost,
+            fecha: datePost.toLocaleString(),
         })
         .then(function(docRef) {
             console.log("Documento publicado con el ID: ", docRef.id);
@@ -103,9 +107,10 @@ export const timelinePost = (inputTitle, inputPost) => {
 
 export const timelineRead = () => {
     const db = firebase.firestore();
-    db.collection('post').onSnapshot((querySnapshot) => {
+    db.collection('post').orderBy('fecha', 'desc').onSnapshot((querySnapshot) => {
+        const show = document.getElementById('outputPost');
+        show.innerHTML = '';
         querySnapshot.forEach((doc) => {
-            const show = document.getElementById('outputPost');
             const showPostInTimeline =
                 `<div class="posted">
             <div class="userInfoPost">
@@ -114,10 +119,11 @@ export const timelineRead = () => {
             <div class="userPost">
                 <p class="comuna">${doc.data().title}</p>
                 <p class="publicacion">${doc.data().content}</p>
-                <p class="publicacion">${doc.id}</p>
+                <p class="publicacionid">${doc.id}</p>
+                <p class="publicacion">${doc.data().fecha}</p>
                 <div class="postIcons">
                 <button id="like" class="likeBtn"><img src="img/heart.png" class="heart"></button><p class="showLike" id="showLike"></p>
-                <button type="button" id="eraseBtn">Eliminar</button>
+                <button type="button" id="${doc.id}" class="deleteBtn">Eliminar</button>
                 <button type="button" id="updateBtn">Editar</button>
                 </div>    
             </div>
@@ -134,11 +140,9 @@ export const timelineRead = () => {
                     }
                     document.getElementById("showLike").innerHTML = localStorage.clickcount;
                 } else {
-                    document.getElementById("showLike").innerHTML = "Sorry, your browser does not support web storage...";
+                    document.getElementById("showLike").innerHTML = "Tu navegador no soporta web storage";
                 }
-                // let a = 0;
-                // a = a + 1;
-                // document.getElementById("showLike").textContent = a;
+
             }
 
             const like = document.querySelector('#like');
@@ -146,6 +150,16 @@ export const timelineRead = () => {
                 pressLike();
             });
 
+            const botones = document.querySelectorAll('.deleteBtn');
+            botones.forEach((btn) => {
+                btn.addEventListener('click', (event) => {
+                    const confirmar = confirm("¿Estás seguro que quieres borrar este post?");
+                    if (confirmar === true) {
+                        const borrarPost = event.target.id;
+                        erasePost(borrarPost);
+                    }
+                })
+            })
 
             const erasePost = (id) => {
                 firebase.firestore().collection("post").doc(id).delete()
@@ -156,11 +170,6 @@ export const timelineRead = () => {
                     });
             };
 
-            const botones = document.querySelector('#eraseBtn');
-            botones.addEventListener('click', () => {
-                erasePost(doc.id);
-                show.innerHTML = '';
-            });
         });
     })
 }
