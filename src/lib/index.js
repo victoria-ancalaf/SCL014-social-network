@@ -77,11 +77,11 @@ export function googleLogin(provider) {
 
 
 // Publicar en el Timeline
+
 export const timelinePost = (inputTitle, inputPost) => {
     const db = firebase.firestore();
     const userNt = () => firebase.auth().currentUser;
     const user = userNt();
-
     db.collection('post').add({
             name: user.displayName,
             uid: user.uid,
@@ -90,17 +90,20 @@ export const timelinePost = (inputTitle, inputPost) => {
             content: inputPost,
         })
         .then(function(docRef) {
-            console.log("Document written with ID: ", docRef.id);
+            console.log("Documento publicado con el ID: ", docRef.id);
+            document.getElementById('titleInput').value = '';
+            document.getElementById('txtArea').value = '';
         })
         .catch(function(error) {
-            console.error("Error adding document: ", error);
+            console.error("Hubo un error a publicar: ", error);
+
         });
 
 }
 
 export const timelineRead = () => {
     const db = firebase.firestore();
-    db.collection('post').get().then((querySnapshot) => {
+    db.collection('post').onSnapshot((querySnapshot) => {
         querySnapshot.forEach((doc) => {
             const show = document.getElementById('outputPost');
             const showPostInTimeline =
@@ -111,12 +114,53 @@ export const timelineRead = () => {
             <div class="userPost">
                 <p class="comuna">${doc.data().title}</p>
                 <p class="publicacion">${doc.data().content}</p>
-            </div>
-            <div class="postIcons">
-            <button id="like" class="likeBtn"><img src="img/heart.png"></button>
+                <p class="publicacion">${doc.id}</p>
+                <div class="postIcons">
+                <button id="like" class="likeBtn"><img src="img/heart.png" class="heart"></button><p class="showLike" id="showLike"></p>
+                <button type="button" id="eraseBtn">Eliminar</button>
+                <button type="button" id="updateBtn">Editar</button>
+                </div>    
             </div>
         </div>`;
             show.innerHTML += showPostInTimeline;
+
+
+            const pressLike = () => {
+                if (typeof(Storage) !== "undefined") {
+                    if (localStorage.clickcount) {
+                        localStorage.clickcount = Number(localStorage.clickcount) + 1;
+                    } else {
+                        localStorage.clickcount = 1;
+                    }
+                    document.getElementById("showLike").innerHTML = localStorage.clickcount;
+                } else {
+                    document.getElementById("showLike").innerHTML = "Sorry, your browser does not support web storage...";
+                }
+                // let a = 0;
+                // a = a + 1;
+                // document.getElementById("showLike").textContent = a;
+            }
+
+            const like = document.querySelector('#like');
+            like.addEventListener('click', () => {
+                pressLike();
+            });
+
+
+            const erasePost = (id) => {
+                firebase.firestore().collection("post").doc(id).delete()
+                    .then(function() {
+                        console.log("Post borrado exitosamente!");
+                    }).catch(function(error) {
+                        console.error("Ha ocurrido un error al borrar tu post: ", error);
+                    });
+            };
+
+            const botones = document.querySelector('#eraseBtn');
+            botones.addEventListener('click', () => {
+                erasePost(doc.id);
+                show.innerHTML = '';
+            });
         });
     })
 }
