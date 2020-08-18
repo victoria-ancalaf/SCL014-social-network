@@ -17,8 +17,8 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-const auth = firebase.auth();
-const provider = new firebase.auth.GoogleAuthProvider();
+
+
 
 const init = () => {
     document.getElementById('root').appendChild(logIn());

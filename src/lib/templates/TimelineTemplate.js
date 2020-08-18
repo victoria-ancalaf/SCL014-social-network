@@ -2,6 +2,7 @@ import {
     timelinePost,
     timelineRead,
     showAllPost,
+    // erasePost,
 } from '../index.js'
 
 // Aquí van las publicaciones de timeline o muro principal
@@ -59,7 +60,7 @@ export const timeLine = () => {
     auth.onAuthStateChanged(user => {
         if (user) {
             showName.innerHTML = `<h3>Hola ${user.displayName}</h3>`;
-            showAllPost();
+            //showAllPost();
         } else {
             showName.innerHTML = '';
         }
@@ -73,6 +74,9 @@ export const timeLine = () => {
     })
 
     timelineRead();
+
+
+
 
     //Barra de búsqueda
 
