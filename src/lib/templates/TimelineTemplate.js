@@ -60,7 +60,7 @@ export const timeLine = () => {
     auth.onAuthStateChanged(user => {
         if (user) {
             showName.innerHTML = `<h3>Hola ${user.displayName}</h3>`;
-            //showAllPost();
+            showAllPost();
         } else {
             showName.innerHTML = '';
         }
