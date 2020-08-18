@@ -59,7 +59,10 @@ export const timeLine = () => {
     const showName = feedWall.querySelector('#showName');
     auth.onAuthStateChanged(user => {
         if (user) {
-            showName.innerHTML = `<h3>Hola ${user.displayName}</h3>`;
+            showName.innerHTML = `<h3>Hola ${user.displayName}!! &#128513</h3>`;
+            showAllPost();
+        } else if (user) {
+            showName.innerHTML = `<h3>Hola ${user.email}!! &#128513</h3>`;
             showAllPost();
         } else {
             showName.innerHTML = '';
@@ -76,9 +79,9 @@ export const timeLine = () => {
     timelineRead();
 
 
-
-
     //Barra de búsqueda
+
+    // const searchBar = document.
 
 
     return feedWall;
