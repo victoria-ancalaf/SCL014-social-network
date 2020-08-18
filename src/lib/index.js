@@ -92,6 +92,7 @@ export const timelinePost = (inputTitle, inputPost) => {
             title: inputTitle,
             content: inputPost,
             fecha: datePost.toLocaleString(),
+            likes: [],
         })
         .then(function(docRef) {
             console.log("Documento publicado con el ID: ", docRef.id);
@@ -106,13 +107,13 @@ export const timelinePost = (inputTitle, inputPost) => {
 }
 
 export const timelineRead = () => {
-    const db = firebase.firestore();
-    db.collection('post').orderBy('fecha', 'desc').onSnapshot((querySnapshot) => {
-        const show = document.getElementById('outputPost');
-        show.innerHTML = '';
-        querySnapshot.forEach((doc) => {
-            const showPostInTimeline =
-                `<div class="posted">
+        const db = firebase.firestore();
+        db.collection('post').orderBy('fecha', 'desc').onSnapshot((querySnapshot) => {
+            const show = document.getElementById('outputPost');
+            show.innerHTML = '';
+            querySnapshot.forEach((doc) => {
+                const showPostInTimeline =
+                    `<div class="posted">
             <div class="userInfoPost">
             ${doc.data().name? doc.data().name : doc.data().email}
             </div>
@@ -122,57 +123,120 @@ export const timelineRead = () => {
                 <p class="publicacionid">${doc.id}</p>
                 <p class="publicacion">${doc.data().fecha}</p>
                 <div class="postIcons">
-                <button id="like" class="likeBtn"><img src="img/heart.png" class="heart"></button><p class="showLike" id="showLike"></p>
+                <button id="${doc.id}" class="likeBtn"><img src="img/heart.png" class="heart"></button><p class="showLike" id="showLike" ></p>
                 <button type="button" id="${doc.id}" class="deleteBtn">Eliminar</button>
                 <button type="button" id="updateBtn">Editar</button>
                 </div>    
             </div>
         </div>`;
-            show.innerHTML += showPostInTimeline;
+                show.innerHTML += showPostInTimeline;
+
+                //Like y Unlike
 
 
-            const pressLike = () => {
-                if (typeof(Storage) !== "undefined") {
-                    if (localStorage.clickcount) {
-                        localStorage.clickcount = Number(localStorage.clickcount) + 1;
-                    } else {
-                        localStorage.clickcount = 1;
-                    }
-                    document.getElementById("showLike").innerHTML = localStorage.clickcount;
-                } else {
-                    document.getElementById("showLike").innerHTML = "Tu navegador no soporta web storage";
+
+                const like = document.querySelectorAll('.likeBtn');
+                like.forEach((lbtn) => {
+                    lbtn.addEventListener('click', (event) => {
+                        const likeP = event.target.id;
+                        pressLike(likeP);
+                    })
+                });
+
+                const pressLike = (uid) => {
+                    firebase.firestore().collection("post").doc(uid)
+                        .then(function() {
+                            if (typeof(Storage) !== "undefined") {
+                                if (localStorage.clickcount) {
+                                    localStorage.clickcount = Number(localStorage.clickcount) + 1;
+                                } else {
+                                    localStorage.clickcount = 1;
+                                }
+                                document.getElementById("showLike").innerHTML = localStorage.clickcount;
+                            } else {
+                                document.getElementById("showLike").innerHTML = "Tu navegador no soporta web storage";
+                            }
+                        })
+
+
                 }
 
-            }
 
-            const like = document.querySelector('#like');
-            like.addEventListener('click', () => {
-                pressLike();
-            });
 
-            const botones = document.querySelectorAll('.deleteBtn');
-            botones.forEach((btn) => {
-                btn.addEventListener('click', (event) => {
-                    const confirmar = confirm("¿Estás seguro que quieres borrar este post?");
-                    if (confirmar === true) {
-                        const borrarPost = event.target.id;
-                        erasePost(borrarPost);
-                    }
+                //Borrar post
+
+                const botones = document.querySelectorAll('.deleteBtn');
+                botones.forEach((btn) => {
+                    btn.addEventListener('click', (event) => {
+                        const confirmar = confirm("¿Estás seguro que quieres borrar este post?");
+                        if (confirmar === true) {
+                            const borrarPost = event.target.id;
+                            erasePost(borrarPost);
+                        }
+                    })
                 })
-            })
 
-            const erasePost = (id) => {
-                firebase.firestore().collection("post").doc(id).delete()
-                    .then(function() {
-                        console.log("Post borrado exitosamente!");
-                    }).catch(function(error) {
-                        console.error("Ha ocurrido un error al borrar tu post: ", error);
-                    });
-            };
 
-        });
-    })
-}
+                const erasePost = (id) => {
+                    firebase.firestore().collection("post").doc(id).delete()
+                        .then(function() {
+                            console.log("Post borrado exitosamente!");
+                        }).catch(function(error) {
+                            console.error("Ha ocurrido un error al borrar tu post: ", error);
+                        });
+                };
+                //Botón like
+                //                 const likeBtn = document.querySelectorAll('.likeBtn');
+                //                 for (let i = 0; i < likeBtn.lenght; i += 1) {
+                //                     const id = likeBtn[i].dataset.id;
+                //                     likeBtn[i].addEventListener('click', () => {
+                //                         likeAndUnlike(id);
+                //                     });
+                //                 }
+
+                //                 const postIcons = document.getElementsByClassName('postIcons');
+                //                 for (let i = 0; i < postIcons.lenght; i += 1) {
+                //                     const showLike = postIcons[i].querySelector('.showLike');
+                //                     const likes = showLike.dataset.likes;
+                //                     showLike.innerHTML = `<span class="numberLike">${likes}</span>`;
+
+                //                     postIcons[i].appendChild(showLike);
+                //                 }
+            });
+        })
+    }
+    //     //Función like
+    // const likeAndUnlike = (id) => {
+    //     const user = firebase.auth().currentUser;
+    //     console.log('Entramooooos');
+    //     firebase.firestore().collection('post').doc('id').get()
+    //         .then((query) => {
+    //             const post = query.data();
+
+//             if (post.like == null || post.like === '') {
+//                 post.like = [];
+//             }
+//             if (post.like.includes(user.uid)) {
+//                 for (let i = 0; i < post.like.lenght; i += 1) {
+//                     if (post.like[i] === user.uid) {
+//                         post.like.splice(i, 1);
+
+//                         firebase.firestore().collection('post').doc(id).update({
+//                             like: post.like
+//                         });
+//                     }
+//                 }
+//             } else {
+//                 post.like.push(user.uid);
+//                 firebase.firestore().collection('post').doc(id).update({
+//                     like: post.like,
+//                 });
+//             }
+//         })
+//         .catch((error) => {
+//             console.log(error);
+//         })
+
 
 export const showAllPost = () => {
     const db = firebase.firestore();
