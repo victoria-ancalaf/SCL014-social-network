@@ -14,7 +14,7 @@
 
 ***
 
-![Logo](neightalk.png)
+![Logo](https://github.com/aneacevedo/SCL014-social-network/tree/Historia-1/src/img/neightalk.png)
 
 ## 1. NeighTalk: Red Social Comunitaria. :speech_balloon:
 
@@ -28,19 +28,19 @@ Puedes conocerla y probarla [aquí](https://social-network-proyect.web.app/).
 Neightalk está pensada como un SPA(Single Page Aplication) Responsive pensada y desarrollada con la técnica Mobile First, sin embargo, también se puede utilizar desde el navegador que el usuario elija.
 Basta con registrarse a través de un correo electrónico o contraseña, o, iniciar sesión con Google para acceder a la app y poder hacer publicaciones.
 
-![App](CP1.png) ![App](CP2.png)
+![App](src/img/CP1.png) ![App](src/img/CP2.png)
 
 ## 3. Proceso de prototipado 📋
 
 #### Prototipo de baja fidelidad:
 Comenzamos construyendo un prototipo de baja fidelidad en InVision, planificando el flujo de trabajo y todo lo que proyectamos incluír en la web app.
 Puedes revisarlo [aquí](https://victoriaancalaf863833.invisionapp.com/freehand/Red-Social-LZshkZbYx).
-![Prototipo](prototipo-baja.png)
+![Prototipo](src/img/prototipo-baja.PNG)
 
 #### Prototipo de alta fidelidad:
 El prototipo de alta fidelidad fue diseñado a través de la plataforma que ofrece Figma, dando énfasis en cómo luciría y el funcionamiento planeado.
 Puedes revisarlo [aquí](https://www.figma.com/proto/sBhHcoydNjATT6ITZg6RO3/Red-Social?node-id=1%3A2&viewport=197%2C514%2C0.5261549949645996&scaling=scale-down).
-![Desktop](AFD.png) ![Mobile](AFM.png)
+![Desktop](src/img/AFD.png) ![Mobile](src/img/AFM.png)
 
 
 ## 4. User Research :busts_in_silhouette:
@@ -49,14 +49,14 @@ Nuestra investigación de usuario se basó en una encuesta realizada a través d
 En ella, a través de una serie de preguntas dirigidas a personas de distintos rangos etáreos y diferentes comunas, consultamos acerca de los temas de mayor interés que quisieran encontrar o compatir a través de una red social como NeighTalk.
 En los resultados, encontramos interés común en avisos de tipo “eventos municipales” y seguridad, entre otros.
 Llevándonos a la conclusión de que debíamos abrir las posibilidades a los contenidos que se compartirían en la red social.
-![Formulario](Encuesta1.png) ![Formulario2](Encuesta2.png) ![Formulario3](Encuesta3.png)
+![Formulario](src/img/Encuesta1.png) ![Formulario2](src/img/Encuesta2.png) ![Formulario3](src/img/Encuesta3.png)
 
 Posteriormente, realizamos testeo en usuarios y aplicamos correcciones y feedbacks recibidos a través de éste ejercicio.
 
 ## 5. Historias de usuario ✅
 Basándonos en los resultados de nuestro user research creamos diferentes historias de usuario, enfocándonos principalmente en las 3 primeras, con intención de continuar iterando en las próximas.
 Realizamos la planificación a través de la plataforma de [Trello](https://trello.com/invite/b/2Hyq5iQ0/7b4c56962762892e3ed020376ff0948a/social-network), por medio de metodología ágil.
-![Trello](Trello.png)
+![Trello](src/img/Trello.png)
 
 ## 6. Objetivos de Aprendizaje 🔧
 En éste proyecto se nos fue proporcionada una lista de objetivos de aprendizaje que debíamos alcanzar, a continuación se detallan los considerados:
