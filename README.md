@@ -14,7 +14,7 @@
 
 ***
 
-![Logo](neightalk.png)
+![Logo](https://github.com/aneacevedo/SCL014-social-network/blob/Historia-1/src/img/neightalk.png)
 
 ## 1. NeighTalk: Red Social Comunitaria. :speech_balloon:
 
