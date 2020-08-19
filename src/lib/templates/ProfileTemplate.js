@@ -24,7 +24,7 @@ export const profile = () => {
         </div>
 <div class="profile">
         <div class="profile-picture"></div>
-        <div class="user-name">Ada Lovelace</div>
+        <div class="user-name"></div>
         <div class="user-bio"></div>
         <button type="button" class="editBtn">Editar perfil</button>
         <footer class="footer">
@@ -42,6 +42,18 @@ export const profile = () => {
     const toggle = divProfile.querySelector('.toggle-btn');
     toggle.addEventListener('click', () => {
         showSidebar();
+    });
+
+    const auth = firebase.auth();
+    const showName = divProfile.querySelector('.user-name');
+    auth.onAuthStateChanged(user => {
+        if (user) {
+            showName.innerHTML = `<p>${user.displayName}</p>`;
+        } else if (user) {
+            showName.innerHTML = `<p>${user.email}</p>`;
+        } else {
+            showName.innerHTML = '';
+        }
     });
 
     return divProfile;
