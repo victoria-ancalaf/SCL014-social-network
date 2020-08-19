@@ -14,7 +14,7 @@
 
 ***
 
-![Logo](https://github.com/aneacevedo/SCL014-social-network/tree/Historia-1/src/img/neightalk.png)
+![Logo](src/img/neightalk.png)
 
 ## 1. NeighTalk: Red Social Comunitaria. :speech_balloon:
 
@@ -35,7 +35,7 @@ Basta con registrarse a través de un correo electrónico o contraseña, o, inic
 #### Prototipo de baja fidelidad:
 Comenzamos construyendo un prototipo de baja fidelidad en InVision, planificando el flujo de trabajo y todo lo que proyectamos incluír en la web app.
 Puedes revisarlo [aquí](https://victoriaancalaf863833.invisionapp.com/freehand/Red-Social-LZshkZbYx).
-![Prototipo](src/img/prototipo-baja.PNG)
+![Prototipo](src/img/protbaja.png)
 
 #### Prototipo de alta fidelidad:
 El prototipo de alta fidelidad fue diseñado a través de la plataforma que ofrece Figma, dando énfasis en cómo luciría y el funcionamiento planeado.
