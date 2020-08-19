@@ -71,7 +71,7 @@ En éste proyecto se nos fue proporcionada una lista de objetivos de aprendizaje
 
 * [x] [Manipulación dinámica del DOM](https://developer.mozilla.org/es/docs/Referencia_DOM_de_Gecko/Introducci%C3%B3n)
 * [ ] [History API](https://developer.mozilla.org/es/docs/DOM/Manipulando_el_historial_del_navegador)
-* [ ] localStorage
+* [x] localStorage
 
 #### Javascript
 
