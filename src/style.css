@@ -150,7 +150,14 @@
                 background-color: #fff;
             }
             
+            .container {
+                display: flex;
+                flex-direction: row;
+            }
+            
             .userInfoPost {
+                display: flex;
+                flex-direction: column;
                 width: 30%;
                 font-family: 'Assistant', sans-serif;
                 color: #555555;
@@ -158,6 +165,14 @@
                 border-radius: 8px;
                 font-weight: 900;
                 padding: 5px;
+                align-items: center;
+            }
+            
+            .profilePh {
+                border-radius: 100px;
+                height: 60px;
+                width: 60px;
+                align-self: center;
             }
             
             .userPost {
@@ -206,6 +221,18 @@
                 width: 25px;
                 border-radius: 5px;
                 margin-right: 10px;
+            }
+            
+            .deleteBtn {
+                cursor: pointer;
+                margin-top: 8px;
+                width: 92px;
+                height: 20px;
+                background: #38D8C9;
+                border: 1px solid #00A79D;
+                border-radius: 5px;
+                margin-right: 10px;
+                color: #fff;
             }
             /* Menú Desplegable */
             
@@ -395,6 +422,7 @@
                 display: inline-block;
                 border: none;
                 background-color: transparent;
+                margin-left: 20px;
             }
             
             .heart {
@@ -402,6 +430,7 @@
             }
             
             .editBtn {
+                cursor: pointer;
                 width: 92px;
                 height: 20px;
                 background-color: #38D8C9;
@@ -417,7 +446,7 @@
                     display: flex;
                     width: 50%;
                     height: auto;
-                    background-image: url(img/casitas.jpg);
+                    background-image: url(img/Stgo1.jpg);
                     background-repeat: no-repeat;
                     background-size: cover;
                 }
@@ -441,7 +470,7 @@
                     display: flex;
                     width: 50%;
                     height: auto;
-                    background-image: url(img/street.jpg);
+                    background-image: url(img/Stgo2.jpg);
                     background-repeat: no-repeat;
                     background-size: cover;
                 }
@@ -464,5 +493,11 @@
                 }
                 .posted {
                     width: 73%;
+                }
+                .btnPost {
+                    margin-left: 88%;
+                }
+                .deleteBtn {
+                    margin-right: 10px;
                 }
             }
