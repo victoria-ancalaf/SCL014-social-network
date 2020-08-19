@@ -25,12 +25,8 @@ export const profile = () => {
 <div class="profile">
         <div class="profile-picture"></div>
         <div class="user-name"></div>
-        <div class="user-bio"></div>
+        <div class="user-bio">Aquí puedes escribir algo sobre ti...</div>
         <button type="button" class="editBtn">Editar perfil</button>
-        <footer class="footer">
-        <img src="img/search.png" class="icons">
-        <input id= "search" type="search" class="searchBar" placeholder="Busca tu comuna..." autocomplete="off">
-        </footer>
     </div>`;
 
     divProfile.innerHTML = viewProfile;
@@ -45,12 +41,12 @@ export const profile = () => {
     });
 
     const auth = firebase.auth();
+    const showPhoto = divProfile.querySelector('.profile-picture');
     const showName = divProfile.querySelector('.user-name');
     auth.onAuthStateChanged(user => {
         if (user) {
-            showName.innerHTML = `<p>${user.displayName}</p>`;
-        } else if (user) {
-            showName.innerHTML = `<p>${user.email}</p>`;
+            showName.innerHTML = `<p>${user.displayName ? user.displayName : user.email}</p>`;
+            showPhoto.innerHTML = `<img src=${user.photoURL ? user.photoURL : "img/icon.png"} class="profilePicture"></img>`;
         } else {
             showName.innerHTML = '';
         }

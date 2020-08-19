@@ -49,6 +49,7 @@ Nuestra investigación de usuario se basó en una encuesta realizada a través d
 En ella, a través de una serie de preguntas dirigidas a personas de distintos rangos etáreos y diferentes comunas, consultamos acerca de los temas de mayor interés que quisieran encontrar o compatir a través de una red social como NeighTalk.
 En los resultados, encontramos interés común en avisos de tipo “eventos municipales” y seguridad, entre otros.
 Llevándonos a la conclusión de que debíamos abrir las posibilidades a los contenidos que se compartirían en la red social.
+
 ![Formulario](src/img/Encuesta1.png) ![Formulario2](src/img/Encuesta2.png) ![Formulario3](src/img/Encuesta3.png)
 
 Posteriormente, realizamos testeo en usuarios y aplicamos correcciones y feedbacks recibidos a través de éste ejercicio.
