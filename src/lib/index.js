@@ -117,14 +117,14 @@ export const timelineRead = () => {
                 `<div class="posted">
                     <div class="container">
             <div class="userInfoPost">
-            <img src=${doc.data().photoUrl} class="profilePh"></img>
+            <img src=${doc.data().photoUrl ? doc.data().photoUrl : "img/icon.png"} class="profilePh"></img>
             ${doc.data().name? doc.data().name : doc.data().email}
             </div>
             <div class="userPost">
+                <p class="fecha">${doc.data().fecha}</p>
                 <p class="comuna">${doc.data().title}</p>
                 <p class="publicacion">${doc.data().content}</p>
                 <p class="publicacionid">${doc.id}</p>
-                <p class="publicacion">${doc.data().fecha}</p>
             </div>
             </div>
             <div class="postIcons">
